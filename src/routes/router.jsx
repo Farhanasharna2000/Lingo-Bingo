@@ -4,6 +4,9 @@ import Home from "../Components/Home/Home";
 import StartLearning from "../Components/StartLearning/StartLearning";
 import Tutorials from "../Components/Tutorials/Tutorials";
 import About from "../Components/About/About";
+import Login from "../Pages/Login/Login";
+import Register from "../Pages/Register/Register";
+import Error from "../Components/Error/Error";
 
 
 const router = createBrowserRouter([
@@ -13,7 +16,8 @@ const router = createBrowserRouter([
       children:[
         {
             path: "/",
-      element: <Home/>,   
+      element: <Home/>, 
+     
         },
         {
             path: "/start-learning",
@@ -29,6 +33,22 @@ const router = createBrowserRouter([
         },
       ]
     },
+    {
+        path: "/login",
+        element: <Login />,
+    },
+    {
+      path: "/pages/login",
+      element: <Login />,
+  },
+    {
+      path: "/pages/register",
+      element: <Register />,
+  },
+  {
+    path: "*",
+    element: <Error />,
+},
   ]);
 
   export default router;

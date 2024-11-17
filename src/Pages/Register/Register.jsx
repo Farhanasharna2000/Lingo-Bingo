@@ -4,7 +4,7 @@ const Register = () => {
     const handleSubmit = e => {
         e.preventDefault();}
     return (
-        <div className="min-h-screen flex justify-center items-center">
+        <div className="min-h-screen flex justify-center items-center bg-base-200">
         <div className="card bg-base-100 w-full max-w-lg shrink-0 rounded-none p-10">
             <h2 className="text-2xl font-semibold text-center">Register your account</h2>
             <form onSubmit={handleSubmit} className="card-body">
@@ -34,17 +34,12 @@ const Register = () => {
                     <input name="password" type="password" placeholder="Enter your password" className="input input-bordered rounded-none bg-[#F3F3F3]" required />
 
                 </div>
-                <div className="form-control">
-                    <label className="flex items-center gap-2 cursor-pointer">
-                        <input type="checkbox" className="checkbox" />
-                        <span className="label-text text-gray-500">Accept Term & Conditions</span>
-                    </label>
-                </div>
+               
                 <div className="form-control mt-6">
                     <button className="btn rounded-none btn-neutral">Register</button>
                 </div>
 
-                <p className="text-center font-semibold">Already Have An Account ? <Link className="text-[#F75B5F]" to='/auth/login'>Login</Link></p>
+                <p className="text-center font-semibold">Already Have An Account ? <Link to='/pages/login' className="text-[#F75B5F]" >Login</Link></p>
             </form>
         </div>
 
