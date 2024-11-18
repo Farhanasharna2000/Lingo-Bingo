@@ -7,6 +7,10 @@ import About from "../Components/About/About";
 import Login from "../Pages/Login/Login";
 import Register from "../Pages/Register/Register";
 import Error from "../Components/Error/Error";
+import PrivateRoute from "../Components/PrivateRoute/PrivateRoute";
+import AboutUs from "../Components/AboutUs/AboutUs";
+import MyProfile from "../Components/MyProfile/MyProfile";
+import UpdateProfile from "../Components/UpdateProfile/UpdateProfile";
 
 
 const router = createBrowserRouter([
@@ -21,11 +25,15 @@ const router = createBrowserRouter([
         },
         {
             path: "/start-learning",
-            element: <StartLearning />,
+            element:<PrivateRoute>
+               <StartLearning />
+            </PrivateRoute>,
         },
         {
             path: "/tutorials",
-            element: <Tutorials />,
+            element: <PrivateRoute>
+              <Tutorials />
+            </PrivateRoute>,
         },
         {
             path: "/about",
@@ -45,6 +53,22 @@ const router = createBrowserRouter([
       path: "/pages/register",
       element: <Register />,
   },
+  {
+    path: "/about-us",
+    element: <AboutUs/>,
+},
+{
+  path: "/profile",
+  element: <PrivateRoute>
+    <MyProfile/>
+  </PrivateRoute>,
+},
+{
+  path: "/update-profile",
+  element: <PrivateRoute>
+    <UpdateProfile/>
+  </PrivateRoute>,
+},
   {
     path: "*",
     element: <Error />,
