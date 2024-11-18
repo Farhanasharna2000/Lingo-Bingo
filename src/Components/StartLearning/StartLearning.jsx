@@ -1,8 +1,9 @@
+import Learn from "../Learn/Learn";
 
 const StartLearning = () => {
     return (
         <div>
-            Start Learning
+          <Learn/>
         </div>
     );
 };

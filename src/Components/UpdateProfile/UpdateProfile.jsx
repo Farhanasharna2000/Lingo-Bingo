@@ -26,8 +26,8 @@ const UpdateProfile = () => {
   return (
     <>
     <Navbar/>
-     <div className="container mx-auto p-6 max-w-md">
-      <div className="card shadow-xl bg-base-100">
+     <div className="container mx-auto p-6 my-8 max-w-md">
+      <div className="card shadow-xl bg-slate-100">
         <div className="card-body">
           <h1 className="text-2xl font-bold mb-4">Update Profile</h1>
           <form onSubmit={handleSubmit}>

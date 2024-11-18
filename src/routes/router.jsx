@@ -28,12 +28,14 @@ const router = createBrowserRouter([
             element:<PrivateRoute>
                <StartLearning />
             </PrivateRoute>,
+              loader: () =>fetch( '/turkish.json' ),
         },
         {
             path: "/tutorials",
             element: <PrivateRoute>
               <Tutorials />
             </PrivateRoute>,
+           
         },
         {
             path: "/about",

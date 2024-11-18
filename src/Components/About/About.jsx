@@ -2,11 +2,11 @@ import { Link } from "react-router-dom";
 
 const About = () => {
     return (
-        <div className="bg-gray-100 py-16 px-8 my-10">
+        <div className="bg-blue-100 rounded-lg py-16 px-8 my-10">
       <div className="max-w-6xl mx-auto text-center">
         <h2 className="text-4xl font-bold text-gray-800 mb-6">About Us</h2>
         <p className="text-lg text-gray-600 mb-8">
-          Welcome to <span className="font-bold text-blue-600">Lingo Bingo</span>! 
+          Welcome to <span className="font-bold text-blue-800">Lingo Bingo</span>! 
           Our mission is to make learning new vocabulary fun, engaging, and accessible for everyone. 
           Whether you are preparing for exams, improving your communication skills, or exploring a new language, 
           we’re here to help you every step of the way.
@@ -29,11 +29,7 @@ const About = () => {
             </p>
           </div>
         </div>
-        <div className="mt-12">
-          <Link to="/start-learning" className="btn btn-primary">
-            Start Learning Now
-          </Link>
-        </div>
+       
       </div>
     </div>
     );
