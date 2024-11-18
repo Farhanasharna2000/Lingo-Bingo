@@ -1,4 +1,4 @@
-import {createBrowserRouter} from "react-router-dom";
+import { createBrowserRouter } from "react-router-dom";
 import MainLayOut from "../MainLayOut/MainLayOut";
 import Home from "../Components/Home/Home";
 import StartLearning from "../Components/StartLearning/StartLearning";
@@ -14,67 +14,67 @@ import UpdateProfile from "../Components/UpdateProfile/UpdateProfile";
 
 
 const router = createBrowserRouter([
-    {
-      path: "/",
-      element: <MainLayOut/>,
-      children:[
-        {
-            path: "/",
-      element: <Home/>, 
-     
-        },
-        {
-            path: "/start-learning",
-            element:<PrivateRoute>
-               <StartLearning />
-            </PrivateRoute>,
-              loader: () =>fetch( '/turkish.json' ),
-        },
-        {
-            path: "/tutorials",
-            element: <PrivateRoute>
-              <Tutorials />
-            </PrivateRoute>,
-           
-        },
-        {
-            path: "/about",
-            element: <About />,
-        },
-      ]
-    },
-    {
-        path: "/login",
-        element: <Login />,
-    },
-    {
-      path: "/pages/login",
-      element: <Login />,
+  {
+    path: "/",
+    element: <MainLayOut />,
+    children: [
+      {
+        path: "/",
+        element: <Home />,
+
+      },
+      {
+        path: "/start-learning",
+        element: <PrivateRoute>
+          <StartLearning />
+        </PrivateRoute>,
+        loader: () => fetch('/turkish.json'),
+      },
+      {
+        path: "/tutorials",
+        element: <PrivateRoute>
+          <Tutorials />
+        </PrivateRoute>,
+
+      },
+      {
+        path: "/about",
+        element: <About />,
+      },
+    ]
   },
-    {
-      path: "/pages/register",
-      element: <Register />,
+  {
+    path: "/login",
+    element: <Login />,
+  },
+  {
+    path: "/pages/login",
+    element: <Login />,
+  },
+  {
+    path: "/pages/register",
+    element: <Register />,
   },
   {
     path: "/about-us",
-    element: <AboutUs/>,
-},
-{
-  path: "/profile",
-  element: <PrivateRoute>
-    <MyProfile/>
-  </PrivateRoute>,
-},
-{
-  path: "/update-profile",
-  element: <PrivateRoute>
-    <UpdateProfile/>
-  </PrivateRoute>,
-},
+    element: <AboutUs />,
+  },
+  {
+    path: "/profile",
+    element: <PrivateRoute>
+      <MyProfile />
+    </PrivateRoute>,
+  },
+  {
+    path: "/update-profile",
+    element: <PrivateRoute>
+      <UpdateProfile />
+    </PrivateRoute>,
+  },
   {
     path: "*",
     element: <Error />,
-},
-  ]);
+  },
+]);
 
-  export default router;
+export default router;

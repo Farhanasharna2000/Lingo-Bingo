@@ -3,7 +3,7 @@ import Learn from "../Learn/Learn";
 const StartLearning = () => {
     return (
         <div>
-          <Learn/>
+            <Learn />
         </div>
     );
 };

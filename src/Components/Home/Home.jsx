@@ -7,11 +7,11 @@ import VocabularyLearn from "../VocabularyLearn/VocabularyLearn";
 const Home = () => {
     return (
         <div>
-            <Banner/>
-            <About/>
-            <Success/>
-            <Application/>
-            <VocabularyLearn/>
+            <Banner />
+            <About />
+            <Success />
+            <Application />
+            <VocabularyLearn />
         </div>
     );
 };

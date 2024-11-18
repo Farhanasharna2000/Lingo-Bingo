@@ -9,7 +9,7 @@ const Login = () => {
   const location = useLocation();
   const navigate = useNavigate();
 
-  const from = location.state?.from?.pathname || "/"; 
+  const from = location.state?.from?.pathname || "/";
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -18,7 +18,7 @@ const Login = () => {
 
     handleLogin(email, password)
       .then(() => {
-        navigate(from, { replace: true }); 
+        navigate(from, { replace: true });
       })
       .catch((err) => {
         setError(err.message);
@@ -28,7 +28,7 @@ const Login = () => {
   const googleLoginHandler = () => {
     handleGoogleLogin()
       .then(() => {
-        navigate(from, { replace: true }); 
+        navigate(from, { replace: true });
       })
       .catch((err) => {
         setError(err.message);

@@ -2,60 +2,68 @@ import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndP
 import { createContext, useEffect, useState } from "react";
 import { auth } from "../../Firebase/firebase.config";
 import { GoogleAuthProvider } from "firebase/auth";
+import PropTypes from 'prop-types';
+
+// eslint-disable-next-line react-refresh/only-export-components
+export const authContext = createContext();
+const AuthProvider = ({ children }) => {
+
+    const googleProvider = new GoogleAuthProvider();
+    const [user, setUser] = useState([])
+    const [loading, setLoading] = useState(true)
 
 
-export const authContext=createContext();
-const AuthProvider = ({children}) => {
+    const handleRegister = (email, password) => {
+        return createUserWithEmailAndPassword(auth, email, password)
+    }
 
-const googleProvider = new GoogleAuthProvider();
-const[user,setUser]=useState([])
-const[loading,setLoading]=useState(true)
+    const handleLogin = (email, password) => {
+        return signInWithEmailAndPassword(auth, email, password)
+    }
 
+    const handleGoogleLogin = () => {
+        return signInWithPopup(auth, googleProvider)
+    }
 
-const handleRegister=(email, password)=>{
-   return  createUserWithEmailAndPassword(auth, email, password)
-}
-const handleLogin=(email, password)=>{
-    return signInWithEmailAndPassword(auth, email, password)
-}
-const handleGoogleLogin=()=>{
-    return signInWithPopup(auth, googleProvider)
-}
-const handleLogout=()=>{
-    return signOut(auth)
-}
+    const handleLogout = () => {
+        return signOut(auth)
+    }
 
-const manageProfile=(name,image)=>{
-    return  updateProfile(auth.currentUser, {
-        displayName:name, photoURL: image
-      })
-}
-const authInfo={
-    handleRegister,
-    handleLogin,
-    handleGoogleLogin,
-    handleLogout,
-    user,
-    setUser,
-    manageProfile,
-    loading
-}
+    const manageProfile = (name, image) => {
+        return updateProfile(auth.currentUser, {
+            displayName: name, photoURL: image
+        })
+    }
 
-useEffect(()=>{
-    const unsubscribe=onAuthStateChanged(auth, (currentUser) => {
-if(currentUser){
-    setUser(currentUser)
-}
-else{
-    setUser(null)
+    const authInfo = {
+        handleRegister,
+        handleLogin,
+        handleGoogleLogin,
+        handleLogout,
+        user,
+        setUser,
+        manageProfile,
+        loading
+    }
 
-}
-setLoading(false)
-        return ()=>{
-            unsubscribe()
-        }
-    })
-},[])
+    useEffect(() => {
+        const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+
+            if (currentUser) {
+                setUser(currentUser)
+            }
+            else {
+                setUser(null)
+
+            }
+
+            setLoading(false)
+            return () => {
+                unsubscribe()
+            }
+        })
+    }, [])
+
     return (
         <div>
             <authContext.Provider value={authInfo}>
@@ -65,4 +73,8 @@ setLoading(false)
     );
 };
 
+AuthProvider.propTypes = {
+
+    children: PropTypes.array,
+}
 export default AuthProvider;

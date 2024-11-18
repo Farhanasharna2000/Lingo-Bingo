@@ -1,5 +1,5 @@
 import { FaBookOpen } from "react-icons/fa";
-import {  Link, Navigate, useLoaderData } from "react-router-dom";
+import {  Link, useLoaderData } from "react-router-dom";
 
 const Learn = () => {
     const users=useLoaderData()
@@ -23,7 +23,7 @@ const Learn = () => {
             <div className="mb-12">
         <h2 className="text-3xl font-bold mb-4 text-center">Alphabet Learning Tutorial</h2>
         <div className="flex justify-center">
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/YCu45ILtikE?si=jtG0byCeACTWEM7Y" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/YCu45ILtikE?si=jtG0byCeACTWEM7Y" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
         </div>
       </div>
 

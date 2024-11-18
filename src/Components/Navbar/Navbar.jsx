@@ -5,8 +5,8 @@ import { authContext } from "../AuthProvider/AuthProvider";
 const Navbar = () => {
   const { handleLogout, user } = useContext(authContext);
   console.log(user);
-  
-  const location = useLocation(); 
+
+  const location = useLocation();
 
   const links = (
     <>
@@ -51,17 +51,17 @@ const Navbar = () => {
         </NavLink>
       </li>
       {
-        user&&(
+        user && (
           <li>
-          <NavLink
-            className={({ isActive }) =>
-              `font-bold ${isActive ? "bg-black text-white hover:text-black" : "hover:text-yellow-600"}`
-            }
-            to="/profile"
-          >
-            My Profile
-          </NavLink>
-        </li>
+            <NavLink
+              className={({ isActive }) =>
+                `font-bold ${isActive ? "bg-black text-white hover:text-black" : "hover:text-yellow-600"}`
+              }
+              to="/profile"
+            >
+              My Profile
+            </NavLink>
+          </li>
         )
       }
     </>

@@ -4,12 +4,12 @@ import Footer from '../Footer/Footer';
 const AboutUs = () => {
     return (
         <div>
-            <Navbar/>
-            <div  className='container mx-auto py-5'>
-            AboutUs
+            <Navbar />
+            <div className='container mx-auto py-5'>
+                AboutUs
 
             </div>
-            <Footer/>
+            <Footer />
         </div>
     );
 };
