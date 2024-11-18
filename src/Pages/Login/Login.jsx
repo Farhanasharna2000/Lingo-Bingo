@@ -1,6 +1,9 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { authContext } from "../../Components/AuthProvider/AuthProvider";
 
 const Login = () => {
+  const {handleLogin,handleGoogleLogin}=useContext(authContext)
   
     const handleSubmit = e => {
         e.preventDefault();}
@@ -29,7 +32,7 @@ const Login = () => {
     <div className="form-control mt-6">
       <button className="btn rounded-none btn-outline border-gray-300">Login</button>
       <p className="my-3 mx-auto font-bold">or,</p>
-      <button className="btn rounded-none btn-outline  border-gray-300">Login with Google</button>
+      <button onClick={handleGoogleLogin} className="btn rounded-none btn-outline  border-gray-300">Login with Google</button>
 
     </div>
   </form>
