@@ -11,6 +11,7 @@ import PrivateRoute from "../Components/PrivateRoute/PrivateRoute";
 import AboutUs from "../Components/AboutUs/AboutUs";
 import MyProfile from "../Components/MyProfile/MyProfile";
 import UpdateProfile from "../Components/UpdateProfile/UpdateProfile";
+import Lesson from "../Components/Lesson/Lesson";
 
 
 const router = createBrowserRouter([
@@ -29,6 +30,15 @@ const router = createBrowserRouter([
           <StartLearning />
         </PrivateRoute>,
         loader: () => fetch('/turkish.json'),
+      },
+      {
+        path: "/lesson/:lessonNo",
+        element: 
+          <PrivateRoute>
+            <Lesson />
+          </PrivateRoute>
+        ,
+        loader: () => fetch('/turkish.json'), 
       },
       {
         path: "/tutorials",

@@ -9,14 +9,16 @@ const Learn = () => {
             <h1 className="text-4xl font-bold mb-8 text-center">Start Learning</h1>  
             <div className="grid grid-cols-1  md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
             {users.slice(0,10).map((user,index)=>(
-          <div
+          <Link
+          to={`/lesson/${user.Id}`}
+          
             key={index}
             className="card shadow-lg bg-blue-100 p-4 text-center cursor-pointer hover:bg-blue-500 hover:text-white transition duration-300"
           
           >
             <FaBookOpen className="text-4xl mb-4 mx-auto" />
             <h2 className="text-xl font-semibold">Lesson-{index + 1}</h2>
-          </div>
+          </Link>
         ))}
             </div>
 
