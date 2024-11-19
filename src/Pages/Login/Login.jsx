@@ -1,17 +1,15 @@
-import { useContext, useRef, useState } from "react";
+import  { useContext, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { authContext } from "../../Components/AuthProvider/AuthProvider";
 import Navbar from "../../Components/Navbar/Navbar";
 import toast from 'react-hot-toast';
 import { FaEye, FaEyeSlash } from "react-icons/fa";
-import { sendPasswordResetEmail } from "firebase/auth";
-import { auth } from "../../Firebase/firebase.config";
 
 const Login = () => {
   const { handleLogin, handleGoogleLogin } = useContext(authContext);
   const [error, setError] = useState('');
-  const [showPassword, setShowPassword] = useState(false)
-  const emailRef=useRef();
+  const [showPassword, setShowPassword] = useState(false);
+  const [email, setEmail] = useState('');
 
   const location = useLocation();
   const navigate = useNavigate();
@@ -46,20 +44,6 @@ const Login = () => {
       });
   };
 
-  const handleForgetPassword=()=>{
-    console.log('give email',emailRef.current.value);
-    const email=emailRef.current.value;
-    if (!email) {
-      console.log('please provide a valid email address');
-      
-    }
-    else{
-      sendPasswordResetEmail(auth, email)
-      .then(()=>{
-        alert('Password reset email sent,please check your email')
-      })
-    }
-  }
   return (
     <>
       <Navbar />
@@ -72,11 +56,12 @@ const Login = () => {
                 <span className="label-text font-semibold">Email address</span>
               </label>
               <input
-              ref={emailRef}
                 name="email"
                 type="email"
                 placeholder="Enter your email address"
                 className="input input-bordered rounded-none bg-[#F3F3F3]"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 required
               />
             </div>
@@ -86,22 +71,26 @@ const Login = () => {
               </label>
               <input
                 name="password"
-                type={showPassword?'text':'password'}
+                type={showPassword ? 'text' : 'password'}
                 placeholder="Enter your password"
                 className="input input-bordered rounded-none bg-[#F3F3F3]"
                 required
               />
               <button 
-              onClick={()=>{setShowPassword(!showPassword)}}
-              className="btn btn-xs absolute right-2 top-12">
-                {
-                  showPassword?<FaEyeSlash />:<FaEye />
-                }
-                </button>
-              <label onClick={handleForgetPassword} className="label">
-                <a href="#" className="label-text-alt link link-hover">
+                type="button"
+                onClick={() => setShowPassword(!showPassword)}
+                className="btn btn-xs absolute right-2 top-12"
+              >
+                {showPassword ? <FaEyeSlash /> : <FaEye />}
+              </button>
+              <label className="label">
+                <Link 
+                  to={`/forget-password?email=${encodeURIComponent(email)}`} 
+                  className="label-text-alt link link-hover"
+                >
                   Forgot password?
-                </a>
+                </Link>
+               
               </label>
             </div>
             <div className="form-control mt-6">
@@ -118,12 +107,8 @@ const Login = () => {
               </button>
             </div>
           </form>
-          <p className="text-center font-semibold">
-            Don’t Have An Account?{" "}
-            <Link className="text-[#F75B5F]" to="/pages/register">
-              Register
-            </Link>
-          </p>
+      
+          <p className="text-center font-semibold">Don’t Have An Account ? <Link className="text-[#F75B5F]" to="/pages/register">Register</Link></p>
         </div>
       </div>
     </>

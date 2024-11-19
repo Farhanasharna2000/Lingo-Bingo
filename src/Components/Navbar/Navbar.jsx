@@ -5,6 +5,7 @@ import logo from "../../assets/Lingo_Bingo_Small_Logo.png";
 const Navbar = () => {
   const { handleLogout, user } = useContext(authContext);
   
+console.log(user);
 
   const links = (
     <>
@@ -105,7 +106,7 @@ const Navbar = () => {
               <div className="flex gap-3">
                 <img
                   className="rounded-full w-12 h-12"
-                  src={user?.photoURL || ""}
+                  src={user?.photoURL || " "}
                   alt="User"
                 />
                 <button onClick={handleLogout} className="btn btn-primary">

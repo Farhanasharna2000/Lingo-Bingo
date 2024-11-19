@@ -1,4 +1,4 @@
-import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
+import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile, sendPasswordResetEmail } from "firebase/auth";
 import { createContext, useEffect, useState } from "react";
 import { auth } from "../../Firebase/firebase.config";
 import { GoogleAuthProvider } from "firebase/auth";
@@ -6,8 +6,8 @@ import PropTypes from 'prop-types';
 
 // eslint-disable-next-line react-refresh/only-export-components
 export const authContext = createContext();
-const AuthProvider = ({ children }) => {
 
+const AuthProvider = ({ children }) => {
     const googleProvider = new GoogleAuthProvider();
     const [user, setUser] = useState([])
     const [loading, setLoading] = useState(true)
@@ -28,6 +28,10 @@ const AuthProvider = ({ children }) => {
         return signOut(auth)
     }
 
+    const handlePasswordReset = (email) => {
+        return sendPasswordResetEmail(auth, email)
+    }
+
     const manageProfile = (name, image) => {
         return updateProfile(auth.currentUser, {
             displayName: name, photoURL: image
@@ -39,6 +43,7 @@ const AuthProvider = ({ children }) => {
         handleLogin,
         handleGoogleLogin,
         handleLogout,
+        handlePasswordReset,
         user,
         setUser,
         manageProfile,
@@ -47,15 +52,12 @@ const AuthProvider = ({ children }) => {
 
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-
             if (currentUser) {
                 setUser(currentUser)
             }
             else {
                 setUser(null)
-
             }
-
             setLoading(false)
             return () => {
                 unsubscribe()
@@ -64,16 +66,14 @@ const AuthProvider = ({ children }) => {
     }, [])
 
     return (
-        <div>
-            <authContext.Provider value={authInfo}>
-                {children}
-            </authContext.Provider>
-        </div>
+        <authContext.Provider value={authInfo}>
+            {children}
+        </authContext.Provider>
     );
 };
 
 AuthProvider.propTypes = {
-
-    children: PropTypes.array,
+    children: PropTypes.node,
 }
+
 export default AuthProvider;

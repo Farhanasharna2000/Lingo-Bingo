@@ -83,9 +83,10 @@ const router = createBrowserRouter([
     </PrivateRoute>,
   },
   {
-    path:"/forgot-password",
+    path:"/forget-password",
      element:<ForgetPassword />,
   },
+ 
   {
     path: "*",
     element: <Error />,
