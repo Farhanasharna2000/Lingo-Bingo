@@ -1,4 +1,4 @@
-import  { useContext, useState } from "react";
+import { useContext, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { authContext } from "../../Components/AuthProvider/AuthProvider";
 import Navbar from "../../Components/Navbar/Navbar";
@@ -76,7 +76,7 @@ const Login = () => {
                 className="input input-bordered rounded-none bg-[#F3F3F3]"
                 required
               />
-              <button 
+              <button
                 type="button"
                 onClick={() => setShowPassword(!showPassword)}
                 className="btn btn-xs absolute right-2 top-12"
@@ -84,30 +84,30 @@ const Login = () => {
                 {showPassword ? <FaEyeSlash /> : <FaEye />}
               </button>
               <label className="label">
-                <Link 
-                  to={`/forget-password?email=${encodeURIComponent(email)}`} 
+                <Link
+                  to={`/forget-password?email=${encodeURIComponent(email)}`}
                   className="label-text-alt link link-hover"
                 >
                   Forgot password?
                 </Link>
-               
+
               </label>
             </div>
             <div className="form-control mt-6">
-              <button className="btn rounded-none btn-outline border-gray-300">Login</button>
+              <button className="btn rounded-none btn-outline hover:bg-gradient-to-r from-blue-500 to-purple-500  hover:text-white hover:border-gray-300 border-gray-300">Login</button>
               {error && <p className="text-red-700 py-2">{error.split('/')[1].replace(/\)\.$/, '')}</p>}
 
               <p className="my-3 mx-auto font-bold">or,</p>
               <button
                 onClick={googleLoginHandler}
                 type="button"
-                className="btn rounded-none btn-outline border-gray-300"
+                className="btn rounded-none btn-outline hover:bg-gradient-to-r from-blue-500 to-purple-500  hover:text-white hover:border-gray-300 border-gray-300"
               >
                 Login with Google
               </button>
             </div>
           </form>
-      
+
           <p className="text-center font-semibold">Don’t Have An Account ? <Link className="text-[#F75B5F]" to="/pages/register">Register</Link></p>
         </div>
       </div>

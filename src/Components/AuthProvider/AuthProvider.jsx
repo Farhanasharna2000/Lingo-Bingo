@@ -1,10 +1,10 @@
+/* eslint-disable react-refresh/only-export-components */
 import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile, sendPasswordResetEmail } from "firebase/auth";
 import { createContext, useEffect, useState } from "react";
 import { auth } from "../../Firebase/firebase.config";
 import { GoogleAuthProvider } from "firebase/auth";
 import PropTypes from 'prop-types';
 
-// eslint-disable-next-line react-refresh/only-export-components
 export const authContext = createContext();
 
 const AuthProvider = ({ children }) => {

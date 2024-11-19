@@ -4,15 +4,15 @@ import { authContext } from "../AuthProvider/AuthProvider";
 import logo from "../../assets/Lingo_Bingo_Small_Logo.png";
 const Navbar = () => {
   const { handleLogout, user } = useContext(authContext);
-  
-console.log(user);
+
+  console.log(user);
 
   const links = (
     <>
       <li>
         <NavLink
           className={({ isActive }) =>
-            `font-bold  ${isActive ? "bg-black text-white hover:text-black" : "hover:text-yellow-600"}`
+            `font-bold  ${isActive ? "bg-blue-800 text-white hover:text-black" : "hover:text-blue-600"}`
           }
           to="/"
         >
@@ -22,7 +22,7 @@ console.log(user);
       <li>
         <NavLink
           className={({ isActive }) =>
-            `font-bold ${isActive ? "bg-black text-white hover:text-black" : "hover:text-yellow-600"}`
+            `font-bold ${isActive ? "bg-blue-800 text-white hover:text-black" : "hover:text-blue-600"}`
           }
           to="/start-learning"
         >
@@ -32,7 +32,7 @@ console.log(user);
       <li>
         <NavLink
           className={({ isActive }) =>
-            `font-bold ${isActive ? "bg-black text-white hover:text-black" : "hover:text-yellow-600"}`
+            `font-bold ${isActive ? "bg-blue-800 text-white hover:text-black" : "hover:text-blue-600"}`
           }
           to="/tutorials"
         >
@@ -42,7 +42,7 @@ console.log(user);
       <li>
         <NavLink
           className={({ isActive }) =>
-            `font-bold ${isActive ? "bg-black text-white hover:text-black" : "hover:text-yellow-600"}`
+            `font-bold ${isActive ? "bg-blue-800 text-white hover:text-black" : "hover:text-blue-600"}`
           }
           to="/about-us"
         >
@@ -54,7 +54,7 @@ console.log(user);
           <li>
             <NavLink
               className={({ isActive }) =>
-                `font-bold ${isActive ? "bg-black text-white hover:text-black" : "hover:text-yellow-600"}`
+                `font-bold ${isActive ? "bg-blue-800 text-white hover:text-black" : "hover:text-blue-600"}`
               }
               to="/profile"
             >
@@ -68,7 +68,7 @@ console.log(user);
 
   return (
     <>
-   
+
       <div className="bg-base-100 shadow-md py-2">
         <div className="navbar container mx-auto">
           <div className="navbar-start">
@@ -96,7 +96,7 @@ console.log(user);
                 {links}
               </ul>
             </div>
-           <img className="w-16 h-16" src={logo}alt="" />
+            <img className="w-16 h-16" src={logo} alt="" />
           </div>
           <div className="navbar-center hidden lg:flex">
             <ul className="menu menu-horizontal px-1">{links}</ul>
@@ -109,13 +109,13 @@ console.log(user);
                   src={user?.photoURL || " "}
                   alt="User"
                 />
-                <button onClick={handleLogout} className="btn btn-primary">
+                <button onClick={handleLogout} className="btn bg-gradient-to-r from-blue-500 to-purple-500 text-white">
                   Logout
                 </button>
               </div>
             ) : (
               <NavLink to="/login">
-                <button className="btn btn-primary">Login</button>
+                <button className="btn bg-gradient-to-r from-blue-500 to-purple-500 text-white">Login</button>
               </NavLink>
             )}
           </div>

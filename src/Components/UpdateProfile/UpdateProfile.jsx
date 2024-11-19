@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { authContext } from '../AuthProvider/AuthProvider';
 import Footer from '../Footer/Footer';
 import Navbar from '../Navbar/Navbar';
+import toast from 'react-hot-toast';
 
 const UpdateProfile = () => {
     const { user, manageProfile } = useContext(authContext);
@@ -14,11 +15,11 @@ const UpdateProfile = () => {
         e.preventDefault();
         try {
             await manageProfile(name, photoURL);
-            alert('Profile updated successfully!');
+            toast.success('Profile updated successfully!');
             navigate('/profile');
         } catch (error) {
             console.error('Error updating profile:', error);
-            alert('Failed to update profile');
+            toast.error('Failed to update profile');
         }
     };
 
@@ -54,7 +55,7 @@ const UpdateProfile = () => {
                                     className="input input-bordered w-full"
                                 />
                             </div>
-                            <button type="submit" className="btn btn-primary w-full">
+                            <button type="submit" className="btn bg-gradient-to-r from-blue-500 to-purple-500 text-white w-full">
                                 Update Information
                             </button>
                         </form>

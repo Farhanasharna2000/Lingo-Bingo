@@ -1,4 +1,4 @@
-import  { useContext, useState, useEffect } from "react";
+import { useContext, useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { Toaster, toast } from "react-hot-toast";
 import { FaEnvelope } from "react-icons/fa";
@@ -25,16 +25,16 @@ function ForgetPassword() {
     setLoading(true);
 
     handlePasswordReset(email)
-    .then(() => {         
-        toast.success("Password reset email sent successfully!");         
-        setLoading(false);         
+      .then(() => {
+        toast.success("Password reset email sent successfully!");
+        setLoading(false);
         navigate('/login');
         window.open('https://mail.google.com/', '_blank');
       })
       .catch((error) => {
         setLoading(false);
-        const errorMessage = error.message.includes('auth/user-not-found') 
-          ? 'No user found with this email' 
+        const errorMessage = error.message.includes('auth/user-not-found')
+          ? 'No user found with this email'
           : 'Failed to send reset password email';
         toast.error(errorMessage);
       });
@@ -63,8 +63,8 @@ function ForgetPassword() {
                 />
               </div>
             </div>
-            <button 
-              type="submit" 
+            <button
+              type="submit"
               disabled={loading}
               className="btn btn-primary w-full"
             >

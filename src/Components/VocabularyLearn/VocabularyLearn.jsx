@@ -9,15 +9,15 @@ const VocabularyLearn = () => {
                 <h1 className="text-2xl font-bold">Learn <span className="text-blue-700">Turkish vocabulary</span> from anywhere</h1>
                 <p className="lg:w-5/6">Lingo Bingo is a vocabulary Turkish learning platform that makes your learning process faster and easier.</p>
 
-                <Link to="/start-learning" className="btn btn-primary">
+                <Link to="/start-learning" className="btn bg-gradient-to-r from-blue-500 to-purple-500 text-white">
                     Start Learning Now
                 </Link>
 
             </div>
             <div>
                 <img className="h-80 p-5" src={cardImg} alt="" data-aos="flip-left"
-     data-aos-easing="ease-out-cubic"
-     data-aos-duration="2000"/>
+                    data-aos-easing="ease-out-cubic"
+                    data-aos-duration="5000" />
             </div>
         </div>
     );

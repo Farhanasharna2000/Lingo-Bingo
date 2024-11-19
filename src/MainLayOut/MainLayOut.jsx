@@ -8,15 +8,15 @@ import 'aos/dist/aos.css';
 import { useEffect } from "react";
 
 const MainLayOut = () => {
-  useEffect(()=>{
-    AOS.init({duration:2000});
-})
+  useEffect(() => {
+    AOS.init({ duration: 2000 });
+  })
   return (
-    
+
     <div className="font-poppins ">
       <Helmet>
-            <title>Lingo Bingo</title>
-           </Helmet>
+        <title>Lingo Bingo</title>
+      </Helmet>
       <Navbar />
       <div className="container mx-auto">
         <Outlet />

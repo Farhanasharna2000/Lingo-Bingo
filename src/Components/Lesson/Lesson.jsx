@@ -1,25 +1,25 @@
-import  { useState } from "react";
+import { useState } from "react";
 import { useParams, Link, useLoaderData } from "react-router-dom";
 
 const Lesson = () => {
   const { lessonNo } = useParams();
   const data = useLoaderData();
 
-  const [modalData, setModalData] = useState(null); 
-  const [isModalOpen, setIsModalOpen] = useState(false); 
+  const [modalData, setModalData] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const filteredData = data.filter((item) => item.Lesson_no === parseInt(lessonNo));
 
   const getCardColor = (difficulty) => {
     switch (difficulty.toLowerCase()) {
       case "easy":
-        return "bg-green-200"; 
+        return "bg-green-400";
       case "medium":
-        return "bg-yellow-200"; 
+        return "bg-yellow-300";
       case "hard":
-        return "bg-red-200"; 
+        return "bg-red-400";
       default:
-        return "bg-gray-200"; 
+        return "bg-gray-400";
     }
   };
 
@@ -40,34 +40,36 @@ const Lesson = () => {
   }
   return (
     <div className="container mx-auto p-6">
-      <h1 className="text-4xl font-bold mb-8 text-center">
+
+      <h1 className="text-5xl font-bold mb-12 text-center text-gradient bg-gradient-to-r from-blue-600 to-purple-600 text-transparent bg-clip-text">
         {filteredData[0]?.title || `Lesson ${lessonNo}`}
       </h1>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
         {filteredData.map((item, index) => (
           <div
-          onClick={() => pronounceWord(item.word)}
+            onClick={() => pronounceWord(item.word)}
             key={index}
-            className={`card shadow-lg p-4 cursor-pointer transition duration-300 ${getCardColor(
+            className={`card transform transition-transform duration-300 hover:scale-105 shadow-lg p-6 rounded-lg ${getCardColor(
               item.difficulty
             )}`}
           >
-            <h2 className="text-2xl font-bold mb-2">{item.title}</h2>
-            <p>
-              <strong>Word:</strong> {item.word}
+            <h2 className="text-2xl font-bold mb-4 text-center text-blue-700">{item.title}</h2>
+            <p className="mb-2">
+              <strong className="text-blue-700">Word:</strong> {item.word}
             </p>
-            <p>
-              <strong>Meaning:</strong> {item.meaning}
+            <p className="mb-2">
+              <strong className="text-blue-700">Meaning:</strong> {item.meaning}
             </p>
-            <p>
-              <strong>Pronunciation:</strong> {item.pronunciation}
+            <p className="mb-2">
+              <strong className="text-blue-700">Pronunciation:</strong> {item.pronunciation}
             </p>
-            <p>
-              <strong>Part of Speech:</strong> {item.part_of_speech}
+            <p className="mb-4">
+              <strong className="text-blue-700">Part of Speech:</strong> {item.part_of_speech}
             </p>
             <button
-              className="btn btn-sm btn-primary mt-4"
+              className="btn btn-sm w-full bg-gradient-to-r from-blue-500 to-purple-500 text-white border-none mt-4 hover:bg-gradient-to-l hover:from-purple-500 hover:to-blue-500 transition duration-300"
               onClick={() => handleOpenModal(item)}
             >
               When to Say
@@ -76,33 +78,93 @@ const Lesson = () => {
         ))}
       </div>
 
+
       <div className="flex justify-center">
-        <Link to="/start-learning" className="btn btn-secondary">
+        <Link
+          to="/start-learning"
+          className="btn px-6 py-3 text-lg bg-gradient-to-r from-blue-500 to-purple-500 text-white font-bold rounded-lg shadow-md hover:scale-105 transform transition duration-300"
+        >
           Back to Lesson
         </Link>
       </div>
 
+
+
       {isModalOpen && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center">
-          <div className="bg-white p-6 rounded-lg shadow-lg w-1/3">
-            <h2 className="text-2xl font-bold mb-4">{modalData.word}</h2>
-            <p>
-              <strong>Meaning:</strong> {modalData.meaning}
-            </p>
-            <p>
-              <strong>When to Say:</strong> {modalData.when_to_say}
-            </p>
-            <p>
-              <strong>Example:</strong> {modalData.example}
-            </p>
+        <div className="fixed inset-0 bg-black bg-opacity-70 flex justify-center items-center z-50">
+          <div
+            className="bg-white p-8 rounded-3xl shadow-2xl w-11/12 md:w-1/2 lg:w-1/3 relative animate-fade-in-down transform transition-transform duration-300"
+          >
+
             <button
-              className="btn btn-primary mt-4"
+              className="absolute top-3 right-3 text-gray-500 hover:text-gray-700 transition duration-300"
+              onClick={handleCloseModal}
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth={2}
+                stroke="currentColor"
+                className="w-6 h-6"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M6 18L18 6M6 6l12 12"
+                />
+              </svg>
+            </button>
+
+
+            <h2 className="text-3xl font-bold text-center text-gradient bg-gradient-to-r from-blue-600 to-purple-600 text-transparent bg-clip-text mb-4">
+              {modalData.word}
+            </h2>
+
+
+            <div className="text-gray-700 space-y-4">
+              <p>
+                <strong className="text-blue-700">Meaning:</strong> {modalData.meaning}
+              </p>
+              <p>
+                <strong className="text-blue-700">When to Say:</strong> {modalData.when_to_say}
+              </p>
+              <p>
+                <strong className="text-blue-700">Example:</strong> {modalData.example}
+              </p>
+            </div>
+
+
+            <button
+              className="w-full py-3 mt-5 bg-gradient-to-r from-blue-500 to-purple-500 text-white font-bold rounded-xl shadow-md hover:scale-105 transform transition duration-300"
               onClick={handleCloseModal}
             >
               Close
             </button>
           </div>
+
+
+          <style>
+            {`
+          .animate-fade-in-down {
+            animation: fade-in-down 0.4s ease-out both;
+          }
+    
+          @keyframes fade-in-down {
+            0% {
+              opacity: 0;
+              transform: translateY(-20px);
+            }
+            100% {
+              opacity: 1;
+              transform: translateY(0);
+            }
+          }
+        `}
+          </style>
         </div>
+
+
       )}
     </div>
   );

@@ -34,12 +34,12 @@ const router = createBrowserRouter([
       },
       {
         path: "/lesson/:lessonNo",
-        element: 
+        element:
           <PrivateRoute>
             <Lesson />
           </PrivateRoute>
         ,
-        loader: () => fetch('/turkish.json'), 
+        loader: () => fetch('/turkish.json'),
       },
       {
         path: "/tutorials",
@@ -83,10 +83,10 @@ const router = createBrowserRouter([
     </PrivateRoute>,
   },
   {
-    path:"/forget-password",
-     element:<ForgetPassword />,
+    path: "/forget-password",
+    element: <ForgetPassword />,
   },
- 
+
   {
     path: "*",
     element: <Error />,

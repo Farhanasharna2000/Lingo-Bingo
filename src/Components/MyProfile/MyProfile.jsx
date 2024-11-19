@@ -13,8 +13,8 @@ const MyProfile = () => {
     return (
         <div>
             <Helmet>
-            <title>MyProfile | Lingo Bingo</title>
-           </Helmet>
+                <title>MyProfile | Lingo Bingo</title>
+            </Helmet>
             <Navbar />
             <div className="container mx-auto p-6 my-8 max-w-lg">
                 <div className="card shadow-xl bg-slate-100">
@@ -29,7 +29,7 @@ const MyProfile = () => {
 
                         <p className="text-gray-500"><span className="font-bold">Email:</span> {user?.email}</p>
                         <button
-                            className="btn btn-primary mt-4 flex items-center"
+                            className="btn bg-gradient-to-r from-blue-500 to-purple-500 text-white mt-4 flex items-center"
                             onClick={() => navigate('/update-profile')}
                         >
                             <FaUserEdit className="mr-2" />

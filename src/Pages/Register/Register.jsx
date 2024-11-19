@@ -79,33 +79,33 @@ const Register = () => {
                             <label className="label">
                                 <span className="label-text font-semibold">Password</span>
                             </label>
-                            <input name="password" type={showPassword?'text':'password'} placeholder="Enter your password" className="input input-bordered rounded-none bg-[#F3F3F3]" required />
-                            <button 
-              onClick={()=>{setShowPassword(!showPassword)}}
-              className="btn btn-xs absolute right-2 top-12">
-                {
-                  showPassword?<FaEyeSlash />:<FaEye />
-                }
-                </button>
+                            <input name="password" type={showPassword ? 'text' : 'password'} placeholder="Enter your password" className="input input-bordered rounded-none bg-[#F3F3F3]" required />
+                            <button
+                                onClick={() => { setShowPassword(!showPassword) }}
+                                className="btn btn-xs absolute right-2 top-12">
+                                {
+                                    showPassword ? <FaEyeSlash /> : <FaEye />
+                                }
+                            </button>
                         </div>
                         <div className="form-control relative">
                             <label className="label">
                                 <span className="label-text font-semibold">Confirm Password</span>
                             </label>
-                            <input name="conpassword" type={showConPassword?'text':'password'} placeholder="Enter your password" className="input input-bordered rounded-none bg-[#F3F3F3]" required />
-                            <button 
-              onClick={()=>{setShowConPassword(!showConPassword)}}
-              className="btn btn-xs absolute right-2 top-12">
-                {
-                  showConPassword?<FaEyeSlash />:<FaEye />
-                }
-                </button>
+                            <input name="conpassword" type={showConPassword ? 'text' : 'password'} placeholder="Enter your password" className="input input-bordered rounded-none bg-[#F3F3F3]" required />
+                            <button
+                                onClick={() => { setShowConPassword(!showConPassword) }}
+                                className="btn btn-xs absolute right-2 top-12">
+                                {
+                                    showConPassword ? <FaEyeSlash /> : <FaEye />
+                                }
+                            </button>
                         </div>
                         {
                             error && <p className="text-red-700">{error}</p>
                         }
                         <div className="form-control mt-6">
-                            <button className="btn rounded-none btn-neutral">Register</button>
+                            <button className="btn rounded-none bg-gradient-to-r from-blue-500 to-purple-500 text-white">Register</button>
                         </div>
 
                         <p className="text-center font-semibold">Already Have An Account ? <Link to='/pages/login' className="text-[#F75B5F]" >Login</Link></p>

@@ -19,7 +19,7 @@ const AboutUs = () => {
                             <p className="text-xl">
                                 Hello, I am <span className="font-bold text-blue-800">Farhana Sharna</span>. I work in web development and specialize in building user-friendly interfaces using modern tools and technologies.
                             </p>
-                            <p className="text-lg mt-6">
+                            <p className="text-lg mt-6 font-bold text-blue-800">
                                 Here are some of my recent projects:
                             </p>
                             <ul className="grid grid-cols-2 gap-4 mt-4 text-left">
@@ -32,46 +32,47 @@ const AboutUs = () => {
                         </div>
                         <div className="mt-12">
                             <h2 className="text-3xl font-bold text-blue-800 text-center">My Skills</h2>
-                            <div className="grid grid-cols-2 md:grid-cols-3 gap-6 mt-8">
-                                <div className="skill-card p-6 bg-blue-50 rounded-lg shadow-sm hover:shadow-md text-center">
-                                    <h3 className="text-lg font-semibold">React</h3>
-                                    <p className="text-sm text-gray-600">For building user interfaces.</p>
+                            <div className="grid grid-cols-2  md:grid-cols-3 lg:grid-cols-4 gap-6  mt-8">
+                                <div>
+                                    <div className="radial-progress text-primary" style={{ "--value": 80 }} role="progressbar"> 80%
+                                    </div>
+                                    <h3 className="text-lg ml-2 mt-2 font-semibold">React</h3>
                                 </div>
-                                <div className="skill-card p-6 bg-blue-50 rounded-lg shadow-sm hover:shadow-md text-center">
-                                    <h3 className="text-lg font-semibold">React Router</h3>
-                                    <p className="text-sm text-gray-600">For managing application routing.</p>
+                                <div>
+                                    <div className="radial-progress text-primary" style={{ "--value": 70 }} role="progressbar"> 70%
+                                    </div>
+                                    <h3 className="text-lg mt-2 font-semibold">React Router</h3>
                                 </div>
-                                <div className="skill-card p-6 bg-blue-50 rounded-lg shadow-sm hover:shadow-md text-center">
-                                    <h3 className="text-lg font-semibold">Firebase</h3>
-                                    <p className="text-sm text-gray-600">Backend services and hosting.</p>
+                                <div>
+                                    <div className="radial-progress text-primary" style={{ "--value": 100 }} role="progressbar"> 100%
+                                    </div>
+                                    <h3 className="text-lg ml-4 mt-2  font-semibold"> HTML</h3>
                                 </div>
-                                <div className="skill-card p-6 bg-blue-50 rounded-lg shadow-sm hover:shadow-md text-center">
-                                    <h3 className="text-lg font-semibold">React Helmet</h3>
-                                    <p className="text-sm text-gray-600">Dynamic document head management.</p>
+                                <div>
+                                    <div className="radial-progress text-primary" style={{ "--value": 60 }} role="progressbar"> 60%
+                                    </div>
+                                    <h3 className="text-lg ml-2 mt-2 font-semibold">Firebase</h3>
                                 </div>
-                                <div className="skill-card p-6 bg-blue-50 rounded-lg shadow-sm hover:shadow-md text-center">
-                                    <h3 className="text-lg font-semibold">React CountUp</h3>
-                                    <p className="text-sm text-gray-600">Animating numbers with a counting-up effect.</p>
+
+
+
+                                <div>
+                                    <div className="radial-progress text-primary" style={{ "--value": 100 }} role="progressbar"> 100%
+                                    </div>
+                                    <h3 className="text-lg ml-2 mt-2 font-semibold">DaisyUI</h3>
                                 </div>
-                                <div className="skill-card p-6 bg-blue-50 rounded-lg shadow-sm hover:shadow-md text-center">
-                                    <h3 className="text-lg font-semibold">React Hot Toast</h3>
-                                    <p className="text-sm text-gray-600">Customizable toast notifications.</p>
+
+
+                                <div>
+                                    <div className="radial-progress text-primary" style={{ "--value": 90 }} role="progressbar"> 90%
+                                    </div>
+                                    <h3 className="text-lg  mt-2 font-semibold">Tailwind CSS</h3>
                                 </div>
-                                <div className="skill-card p-6 bg-blue-50 rounded-lg shadow-sm hover:shadow-md text-center">
-                                    <h3 className="text-lg font-semibold">React Icons</h3>
-                                    <p className="text-sm text-gray-600">Popular icon sets for React.</p>
-                                </div>
-                                <div className="skill-card p-6 bg-blue-50 rounded-lg shadow-sm hover:shadow-md text-center">
-                                    <h3 className="text-lg font-semibold">AOS</h3>
-                                    <p className="text-sm text-gray-600">Scroll-triggered animations.</p>
-                                </div>
-                                <div className="skill-card p-6 bg-blue-50 rounded-lg shadow-sm hover:shadow-md text-center">
-                                    <h3 className="text-lg font-semibold">DaisyUI</h3>
-                                    <p className="text-sm text-gray-600"> Offering pre-designed, customizable components for quick UI development.</p>
-                                </div>
-                                <div className="skill-card p-6 bg-blue-50 rounded-lg shadow-sm hover:shadow-md text-center">
-                                    <h3 className="text-lg font-semibold">Tailwind CSS</h3>
-                                    <p className="text-sm text-gray-600">Enables rapid, custom design directly in markup.</p>
+
+                                <div>
+                                    <div className="radial-progress text-primary" style={{ "--value": 95 }} role="progressbar"> 95%
+                                    </div>
+                                    <h3 className="text-lg ml-6 mt-2 font-semibold"> CSS</h3>
                                 </div>
                             </div>
                         </div>

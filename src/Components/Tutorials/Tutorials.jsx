@@ -4,11 +4,11 @@ import { Link } from "react-router-dom";
 const Tutorials = () => {
     return (
         <div className="my-8">
-           <Helmet>
-            <title>Tutorials | Lingo Bingo</title>
-           </Helmet>
+            <Helmet>
+                <title>Tutorials | Lingo Bingo</title>
+            </Helmet>
             <div className="mb-12">
-                <h2 className="text-3xl font-bold mb-4 text-center">Alphabet Learning Tutorials</h2>
+                <h2 className="text-4xl font-bold mb-4 text-center">Alphabet Learning Tutorials</h2>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -34,11 +34,14 @@ const Tutorials = () => {
                 <div>
                     <iframe width="400" height="315" src="https://www.youtube.com/embed/uv_q-3y97Wo?si=2QL9uScLhLCiR2kz" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                 </div>
+                <div>
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/Nt4J_CX5AT0?si=E_riSC8Ukqq-8j8Y" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
             </div>
 
             <div className="flex justify-center mt-8">
                 <Link to='/start-learning'
-                    className="btn btn-primary">
+                    className="btn bg-gradient-to-r from-blue-500 to-purple-500 text-white">
                     Learn Vocabularies
                 </Link>
             </div>
