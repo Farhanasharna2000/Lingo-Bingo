@@ -5,7 +5,7 @@ import bannerImg4 from '../../assets/Turkish_language_image_4.png'
 
 const Banner = () => {
   return (
-    <div className="carousel w-full pt-8 ">
+    <div className="carousel w-full pt-3 ">
 
       <div id="slide1" className="carousel-item relative w-full">
         <img

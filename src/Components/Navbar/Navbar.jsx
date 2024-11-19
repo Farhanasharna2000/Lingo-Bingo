@@ -1,12 +1,10 @@
 import { useContext } from "react";
-import { NavLink, useLocation } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { authContext } from "../AuthProvider/AuthProvider";
-
+import logo from "../../assets/Lingo_Bingo_Small_Logo.png";
 const Navbar = () => {
   const { handleLogout, user } = useContext(authContext);
-  console.log(user);
-
-  const location = useLocation();
+  
 
   const links = (
     <>
@@ -69,12 +67,7 @@ const Navbar = () => {
 
   return (
     <>
-      {user?.displayName && location.pathname === "/" && (
-        <div className="py-2 text-center text-blue-500 text-lg font-semibold">
-          Welcome, {user.displayName}!
-        </div>
-      )}
-
+   
       <div className="bg-base-100 shadow-md py-2">
         <div className="navbar container mx-auto">
           <div className="navbar-start">
@@ -102,7 +95,7 @@ const Navbar = () => {
                 {links}
               </ul>
             </div>
-            <a className="btn bg-white text-2xl font-bold">Lingo Bingo</a>
+           <img className="w-16 h-16" src={logo}alt="" />
           </div>
           <div className="navbar-center hidden lg:flex">
             <ul className="menu menu-horizontal px-1">{links}</ul>

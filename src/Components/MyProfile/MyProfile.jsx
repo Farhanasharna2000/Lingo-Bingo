@@ -4,6 +4,7 @@ import Navbar from "../Navbar/Navbar";
 import { authContext } from "../AuthProvider/AuthProvider";
 import { useNavigate } from "react-router-dom";
 import { FaUserEdit } from "react-icons/fa";
+import { Helmet } from "react-helmet";
 
 const MyProfile = () => {
     const { user } = useContext(authContext);
@@ -11,6 +12,9 @@ const MyProfile = () => {
 
     return (
         <div>
+            <Helmet>
+            <title>MyProfile | Lingo Bingo</title>
+           </Helmet>
             <Navbar />
             <div className="container mx-auto p-6 my-8 max-w-lg">
                 <div className="card shadow-xl bg-slate-100">
