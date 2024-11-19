@@ -36,12 +36,14 @@ const Application = () => {
                 <img
                     src={mobileImg2}
                     alt="App Preview"
-                    className="w-80 h-auto animate__animated animate__zoomIn  animate__delay-1s"
+                    className="w-80 h-auto "
+                    data-aos="zoom-in" data-aos-easing="ease-in-out"
                 />
                 <img
                     src={mobileImg1}
                     alt="App Preview"
-                    className="lg:w-[20%] w-auto h-[60%] lg:h-[90%]  animate__animated animate__zoomIn animate__delay-2s absolute lg:top-3 lg:right-7 right-10"
+                    data-aos="zoom-in" data-aos-easing="ease-in-out"
+                    className="lg:w-[20%] w-auto h-[60%] lg:h-[90%]  absolute lg:top-3 lg:right-7 right-10"
                 />
             </div>
 

@@ -1,9 +1,9 @@
 import CountUp from 'react-countup';
 const Success = () => {
   const userCount = 1200;
-  const lessonCount = 85;
-  const vocabularyCount = 450;
-  const tutorialCount = 50;
+  const lessonCount = 10;
+  const vocabularyCount = 50;
+  const tutorialCount = 10;
   return (
     <div className="container mx-auto p-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
 

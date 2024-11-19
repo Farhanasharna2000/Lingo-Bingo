@@ -31,6 +31,11 @@ The project utilizes the following npm packages:
 - **React-countup**: Animates numbers with a counting-up effect.
 - **React-hot-toast**: Lightweight library for customizable toast notifications.
 - **React-icons**: Provides popular icon sets as React components.
+- **AOS**: Adding smooth, customizable scroll-triggered animations with minimal effort.
+- **Tailwind CSS**: Enables rapid, custom design directly in markup.
+- **DaisyUI**: Offering pre-designed, customizable components for quick UI development.
+
+
 
 
 
