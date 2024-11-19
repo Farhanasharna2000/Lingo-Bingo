@@ -2,7 +2,7 @@ import { useContext, useRef, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { authContext } from "../../Components/AuthProvider/AuthProvider";
 import Navbar from "../../Components/Navbar/Navbar";
-import toast, { Toaster } from 'react-hot-toast';
+import toast from 'react-hot-toast';
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { sendPasswordResetEmail } from "firebase/auth";
 import { auth } from "../../Firebase/firebase.config";
@@ -63,7 +63,6 @@ const Login = () => {
   return (
     <>
       <Navbar />
-      <Toaster />
       <div className="min-h-screen flex justify-center items-center bg-base-200 py-5">
         <div className="card bg-base-100 w-full max-w-lg shrink-0 rounded-none p-10">
           <h2 className="text-2xl font-semibold text-center">Login to your account</h2>
