@@ -15,9 +15,6 @@ const Tutorials = () => {
                     <iframe width="400" height="315" src="https://www.youtube.com/embed/Doy8-hyZtWg?si=z5PXV3aFeAtjSL-q" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                 </div>
                 <div>
-                    <iframe width="400" height="315" src="https://www.youtube.com/embed/l0uvd95mVqs?si=IBqK1EqDLm1If9yz" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                </div>
-                <div>
                     <iframe width="400" height="315" src="https://www.youtube.com/embed/QeT58HmzRAg?si=jCEQkJc-R2NnhvnG" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                 </div>
                 <div>

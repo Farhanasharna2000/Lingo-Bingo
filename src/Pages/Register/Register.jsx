@@ -2,11 +2,16 @@ import { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { authContext } from "../../Components/AuthProvider/AuthProvider";
 import Navbar from "../../Components/Navbar/Navbar";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 const Register = () => {
     const { handleRegister, manageProfile } = useContext(authContext)
     const navigate = useNavigate();
     const [error, setError] = useState('')
+    const [showPassword, setShowPassword] = useState(false)
+    const [showConPassword, setShowConPassword] = useState(false)
+
+
     const handleSubmit = e => {
         e.preventDefault();
         setError("")
@@ -70,19 +75,31 @@ const Register = () => {
                             </label>
                             <input name="email" type="email" placeholder="Enter your email address" className="input input-bordered rounded-none bg-[#F3F3F3]" required />
                         </div>
-                        <div className="form-control">
+                        <div className="form-control relative">
                             <label className="label">
                                 <span className="label-text font-semibold">Password</span>
                             </label>
-                            <input name="password" type="password" placeholder="Enter your password" className="input input-bordered rounded-none bg-[#F3F3F3]" required />
-
+                            <input name="password" type={showPassword?'text':'password'} placeholder="Enter your password" className="input input-bordered rounded-none bg-[#F3F3F3]" required />
+                            <button 
+              onClick={()=>{setShowPassword(!showPassword)}}
+              className="btn btn-xs absolute right-2 top-12">
+                {
+                  showPassword?<FaEyeSlash />:<FaEye />
+                }
+                </button>
                         </div>
-                        <div className="form-control">
+                        <div className="form-control relative">
                             <label className="label">
                                 <span className="label-text font-semibold">Confirm Password</span>
                             </label>
-                            <input name="conpassword" type="password" placeholder="Enter your password" className="input input-bordered rounded-none bg-[#F3F3F3]" required />
-
+                            <input name="conpassword" type={showConPassword?'text':'password'} placeholder="Enter your password" className="input input-bordered rounded-none bg-[#F3F3F3]" required />
+                            <button 
+              onClick={()=>{setShowConPassword(!showConPassword)}}
+              className="btn btn-xs absolute right-2 top-12">
+                {
+                  showConPassword?<FaEyeSlash />:<FaEye />
+                }
+                </button>
                         </div>
                         {
                             error && <p className="text-red-700">{error}</p>

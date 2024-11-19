@@ -1,4 +1,3 @@
-// UpdateProfile.jsx
 import { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { authContext } from '../AuthProvider/AuthProvider';

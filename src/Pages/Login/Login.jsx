@@ -1,11 +1,18 @@
-import { useContext, useState } from "react";
+import { useContext, useRef, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { authContext } from "../../Components/AuthProvider/AuthProvider";
 import Navbar from "../../Components/Navbar/Navbar";
+import toast, { Toaster } from 'react-hot-toast';
+import { FaEye, FaEyeSlash } from "react-icons/fa";
+import { sendPasswordResetEmail } from "firebase/auth";
+import { auth } from "../../Firebase/firebase.config";
 
 const Login = () => {
   const { handleLogin, handleGoogleLogin } = useContext(authContext);
   const [error, setError] = useState('');
+  const [showPassword, setShowPassword] = useState(false)
+  const emailRef=useRef();
+
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -18,26 +25,45 @@ const Login = () => {
 
     handleLogin(email, password)
       .then(() => {
+        toast.success('Successfully logged in!');
         navigate(from, { replace: true });
       })
       .catch((err) => {
         setError(err.message);
+        toast.error('Failed to login. Please try again.');
       });
   };
 
   const googleLoginHandler = () => {
     handleGoogleLogin()
       .then(() => {
+        toast.success('Successfully logged in with Google!');
         navigate(from, { replace: true });
       })
       .catch((err) => {
         setError(err.message);
+        toast.error('Failed to login with Google. Please try again.');
       });
   };
 
+  const handleForgetPassword=()=>{
+    console.log('give email',emailRef.current.value);
+    const email=emailRef.current.value;
+    if (!email) {
+      console.log('please provide a valid email address');
+      
+    }
+    else{
+      sendPasswordResetEmail(auth, email)
+      .then(()=>{
+        alert('Password reset email sent,please check your email')
+      })
+    }
+  }
   return (
     <>
       <Navbar />
+      <Toaster />
       <div className="min-h-screen flex justify-center items-center bg-base-200 py-5">
         <div className="card bg-base-100 w-full max-w-lg shrink-0 rounded-none p-10">
           <h2 className="text-2xl font-semibold text-center">Login to your account</h2>
@@ -47,6 +73,7 @@ const Login = () => {
                 <span className="label-text font-semibold">Email address</span>
               </label>
               <input
+              ref={emailRef}
                 name="email"
                 type="email"
                 placeholder="Enter your email address"
@@ -54,18 +81,25 @@ const Login = () => {
                 required
               />
             </div>
-            <div className="form-control">
+            <div className="form-control relative">
               <label className="label">
                 <span className="label-text font-semibold">Password</span>
               </label>
               <input
                 name="password"
-                type="password"
+                type={showPassword?'text':'password'}
                 placeholder="Enter your password"
                 className="input input-bordered rounded-none bg-[#F3F3F3]"
                 required
               />
-              <label className="label">
+              <button 
+              onClick={()=>{setShowPassword(!showPassword)}}
+              className="btn btn-xs absolute right-2 top-12">
+                {
+                  showPassword?<FaEyeSlash />:<FaEye />
+                }
+                </button>
+              <label onClick={handleForgetPassword} className="label">
                 <a href="#" className="label-text-alt link link-hover">
                   Forgot password?
                 </a>
