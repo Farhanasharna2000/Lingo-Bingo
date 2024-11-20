@@ -5,7 +5,6 @@ import logo from "../../assets/Lingo_Bingo_Small_Logo.png";
 const Navbar = () => {
   const { handleLogout, user } = useContext(authContext);
 
-  console.log(user);
 
   const links = (
     <>
