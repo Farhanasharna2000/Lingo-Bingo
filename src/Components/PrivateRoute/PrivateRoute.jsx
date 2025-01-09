@@ -7,7 +7,7 @@ const PrivateRoute = ({ children }) => {
     const { user, loading } = useContext(authContext)
     const location = useLocation()
     if (loading) {
-        return <span className="loading loading-bars loading-lg mx-auto block py-40"></span>
+        return <span className="loading loading-bars loading-lg"></span>
     }
     if (!user) {
         return <Navigate state={{ from: location }} replace to="/login"></Navigate>
