@@ -105,7 +105,9 @@ const Register = () => {
                             error && <p className="text-red-700">{error}</p>
                         }
                         <div className="form-control mt-6">
+
                             <button className="btn rounded-none bg-gradient-to-r from-blue-500 to-purple-500 text-white">Register</button>
+                            
                         </div>
 
                         <p className="text-center font-semibold">Already Have An Account ? <Link to='/pages/login' className="text-[#F75B5F]" >Login</Link></p>
